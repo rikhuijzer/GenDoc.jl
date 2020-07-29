@@ -1,5 +1,4 @@
-module Example
-export hello, domath
+module GenDoc
 
 """
     hello(who::String)
@@ -7,6 +6,7 @@ export hello, domath
 Return "Hello, `who`".
 """
 hello(who::String) = "Hello, $who"
+export hello
 
 """
     domath(x::Number)
@@ -14,5 +14,6 @@ hello(who::String) = "Hello, $who"
 Return `x + 5`.
 """
 domath(x::Number) = x + 5
+export domath
 
-end
+end # module
