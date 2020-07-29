@@ -16,3 +16,6 @@ They introduce special syntax which constrains capabiltities.
 Capabilities which would be available in the underlying language.
 For example, they do not allow users to apply a function to all generated codeblocks.
 As another example, they tend to hinder existing language tooling such as test suits and reformatters.
+
+For now, this project has [RCall.jl](https://github.com/JuliaInterop/RCall.jl) in its dependencies.
+It might be better to move the R stuff out at some point to avoid this dependency.
