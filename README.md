@@ -8,9 +8,7 @@
 
 
 <p align="center">
-  <a href="https://coveralls.io/r/rikhuijzer/GenDoc.jl?branch=master"><img src="https://coveralls.io/repos/rikhuijzer/GenDoc.jl/badge.svg?branch=master"></a>
   <a href="https://travis-ci.org/rikhuijzer/GenDoc.jl"><img src="https://travis-ci.org/rikhuijzer/GenDoc.jl.svg?branch=master"></a>
-  <a href="http://codecov.io/github/rikhuijzer/GenDoc.jl?branch=master"><img src="http://codecov.io/github/rikhuijzer/GenDoc.jl/coverage.svg?branch=master"></a>
 </p>
 
 This project arose out of a lack of flexibility in existing notebook solutions such as [Jupyter Notebook](https://jupyter.org), [R Markdown](https://rmarkdown.rstudio.com/) and [Weave.jl](https://github.com/JunoLab/Weave.jl).
