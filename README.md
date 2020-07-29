@@ -1,11 +1,20 @@
-Example Julia package repo.
+<h1 align="center">
+  GenDoc
+</h1>
 
-[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://JuliaLang.github.io/Example.jl/stable)
-[![](https://img.shields.io/badge/docs-dev-blue.svg)](https://JuliaLang.github.io/Example.jl/dev)
+<p align="center">
+  Generate documents, such as Markdown and LaTeX, from Julia.
+</p>
 
-Linux and macOS: [![Build Status](https://travis-ci.org/JuliaLang/Example.jl.svg?branch=master)](https://travis-ci.org/JuliaLang/Example.jl)
 
-Windows: [![Build Status](https://ci.appveyor.com/api/projects/status/github/JuliaLang/Example.jl?branch=master&svg=true)](https://ci.appveyor.com/project/tkelman/example-jl/branch/master)
+<p align="center">
+  <a href="https://coveralls.io/r/rikhuijzer/GenDoc.jl?branch=master"><img src="https://coveralls.io/repos/rikhuijzer/GenDoc.jl/badge.svg?branch=master"></a>
+  <a href="https://travis-ci.org/rikhuijzer/GenDoc.jl"><img src="https://travis-ci.org/rikhuijzer/GenDoc.jl.svg?branch=master"></a>
+  <a href="http://codecov.io/github/rikhuijzer/GenDoc.jl?branch=master"><img src="http://codecov.io/github/rikhuijzer/GenDoc.jl/coverage.svg?branch=master"></a>
+</p>
 
-[![Coverage Status](https://coveralls.io/repos/JuliaLang/Example.jl/badge.svg?branch=master)](https://coveralls.io/r/JuliaLang/Example.jl?branch=master)
-[![codecov.io](http://codecov.io/github/JuliaLang/Example.jl/coverage.svg?branch=master)](http://codecov.io/github/JuliaLang/Example.jl?branch=master)
+This project arose out of a lack of flexibility in existing notebook solutions such as [Jupyter Notebook](https://jupyter.org), [R Markdown](https://rmarkdown.rstudio.com/) and [Weave.jl](https://github.com/JunoLab/Weave.jl).
+They introduce special syntax which constrains capabiltities.
+Capabilities which would be available in the underlying language.
+For example, they do not allow users to apply a function to all generated codeblocks.
+As another example, they tend to hinder existing language tooling such as test suits and reformatters.
