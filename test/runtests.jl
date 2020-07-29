@@ -9,6 +9,8 @@ function test_rcall()
     @test length(lsd) > 50
 end
 
-test_rcall()
-@test hello("Julia") == "Hello, Julia"
-@test domath(2.0) ≈ 7.0
+@testset "GenDoc" begin
+    test_rcall()
+
+    include("md.jl")
+end
