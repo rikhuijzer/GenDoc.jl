@@ -1,7 +1,7 @@
 name: Documentation
 
 # 
-# Based on https://github.com/fredrikekre/Literate.jl.
+# Based on https://github.com/fredrikekre/Literate.jl and https://github.com/JuliaInterop/RCall.jl.
 #
 on:
   push:
@@ -21,13 +21,16 @@ jobs:
         os: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v1.0.0
+      - uses: r-lib/actions/setup-r@v1
+      - run: echo "::set-env name=LD_LIBRARY_PATH::$(R RHOME)/lib"
+      - uses: julia-actions/julia-buildpkg@latest
+      - name: Install dependencies
+        run: julia --project=docs/ -e 'using Pkg; Pkg.develop(PackageSpec(path=pwd())); Pkg.instantiate()'
       - uses: julia-actions/setup-julia@latest
         with:
           version: ${{ matrix.julia-version }}
-      - name: Install dependencies
-        run: julia --project=docs -e 'using Pkg; Pkg.instantiate()'
-      - name: Build and deploy
+      - name: Make docs
+        run: julia --project=docs/ docs/make.jl
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DOCUMENTER_KEY: ${{ secrets.DOCUMENTER_KEY }}
-        run: julia --project=docs --color=yes docs/make.jl
+          DOCUMENTER_KEY: ${{ secrets.SSH_KEY }}
