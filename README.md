@@ -7,7 +7,6 @@
   Furthermore, this project aims to generate LaTeX and Word documents via Pandoc and websites via Hugo.
 </p>
 
-
 <p align="center">
   <a href="https://travis-ci.org/rikhuijzer/GenDoc.jl"><img src="https://travis-ci.org/rikhuijzer/GenDoc.jl.svg?branch=master"></a>
 </p>
