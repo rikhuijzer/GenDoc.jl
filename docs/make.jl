@@ -1,5 +1,5 @@
 using Documenter, GenDoc
 
-makedocs(modules = [Example], sitename = "GenDoc.jl")
+makedocs(modules = [GenDoc], sitename = "GenDoc.jl")
 
-deploydocs(repo = "github.com/rikhuijzer/gendoc.jl.git")
+deploydocs(repo = "github.com/rikhuijzer/GenDoc.jl.git")
