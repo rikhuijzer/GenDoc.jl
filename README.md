@@ -8,8 +8,8 @@
 </p>
 
 <p align="center">
-  <a href="https://rikhuijzer.github.io/GenDoc.jl/actions"><img src="https://github.com/rikhuijzer/GenDoc.jl/workflows/Test/badge.svg></a>
-  <a href="https://rikhuijzer.github.io/GenDoc.jl/dev"><img src="https://github.com/rikhuijzer/GenDoc.jl/workflows/Documentation/badge.svg></a>
+  <a href="https://rikhuijzer.github.io/GenDoc.jl/actions"><img src="https://github.com/rikhuijzer/GenDoc.jl/workflows/Test/badge.svg"></a>
+  <a href="https://rikhuijzer.github.io/GenDoc.jl/dev"><img src="https://github.com/rikhuijzer/GenDoc.jl/workflows/Documentation/badge.svg"></a>
 </p>
 
 This project arose out of a lack of flexibility in existing notebook solutions such as [Jupyter Notebook](https://jupyter.org), [R Markdown](https://rmarkdown.rstudio.com/) and [Weave.jl](https://github.com/JunoLab/Weave.jl).
