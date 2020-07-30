@@ -1,5 +1,10 @@
 using Dates
 
+"""
+    generate_front_matter(vars::Dict{String,String})
+
+Generates YAML front matter based on given `vars`.
+"""
 function generate_front_matter(vars::Dict{String,String})::String
     if !("date" in keys(vars))
         vars["date"] = string(Dates.today())
