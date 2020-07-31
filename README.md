@@ -2,10 +2,9 @@
   GenDoc
 </h1>
 
-<p align="center">
-  Generate Markdown documents from Julia.
-  Furthermore, this project aims to generate LaTeX and Word documents via Pandoc and websites via Hugo.
-</p>
+<h3 align="center">
+  Generate Markdown documents
+</h3>
 
 <p align="center">
   <a href="https://rikhuijzer.github.io/GenDoc.jl/actions"><img src="https://github.com/rikhuijzer/GenDoc.jl/workflows/Test/badge.svg"></a>
