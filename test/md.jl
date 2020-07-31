@@ -1,5 +1,6 @@
 using DataFrames
 using GenDoc
+using RCall
 using Test
 
 @testset "md" begin
@@ -19,4 +20,12 @@ using Test
         1 | A
         2 | B
         """
+
+    @wrap_tmpdir begin
+        R"library(ggplot2)"
+        plot = R"ggplot(cars)"
+        # Mostly a smoke test.
+        @test occursin("plot.png", rplot(plot, "plot.png", tmpdir, tmpdir))
+    end
+
 end
