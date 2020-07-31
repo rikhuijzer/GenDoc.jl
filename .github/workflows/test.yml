@@ -1,5 +1,5 @@
 # This workflow is based on https://github.com/andyferris/Dictionaries.jl.
-name: Test
+name: tests
 on:
   push:
     branches:
