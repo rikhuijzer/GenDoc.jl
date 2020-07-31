@@ -61,8 +61,8 @@ To avoid constantly passing `path_prefix` and `url_prefix`, consider using parti
 function rplot(plot, filename, path_prefix, uri_prefix)::String
     im_path = joinpath(path_prefix, filename)
     R"ggsave(file=$im_path, plot=$plot)"
-    uri_path = joinpath(uri_prefix, filename)
-    return uri_path
+    uri_path = uri_prefix != nothing ? joinpath(uri_prefix, filename) : filename
+    return "![]($uri_path)"
 end
 export rplot
 
