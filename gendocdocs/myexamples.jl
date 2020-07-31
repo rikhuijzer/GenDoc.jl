@@ -7,7 +7,8 @@ Writes a Markdown file containing example uses for GenDoc.
 The output file is then further processed by `Documenter.jl`.
 """
 function write_myexamples()
-    filename = "myexamples.md"
+    # Allows generated Markdown files to be added to `.gitignore`.
+    filename = "gen_myexamples.md"
 
     text = """
         # My examples
