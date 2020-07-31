@@ -65,3 +65,19 @@ function rplot(plot, filename, path_prefix, uri_prefix)::String
     return uri_path
 end
 export rplot
+
+"""
+    @asmd ex
+
+Returns an expresssion *as Markdown* (asmd).
+Similar to default behaviour of R Markdown codeblocks.
+"""
+macro asmd(ex::Expr)
+    return """
+        ```
+        $(ex)
+        ```
+        $(eval(ex))
+        """
+end
+export @asmd

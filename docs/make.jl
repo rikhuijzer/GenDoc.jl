@@ -1,14 +1,13 @@
 using Documenter
 using GenDoc
 
-include("../gendocdocs/myexamples.jl")
+include("../gendocdocs/examples.jl")
 
 makedocs(sitename = "GenDoc.jl",
     pages = [
         "Introduction" => "index.md",
-        "Getting Started" => "gettingstarted.md",
-        "Examples" => "examples.md",
-        "My examples" => write_myexamples()
+        "Getting started" => "gettingstarted.md",
+        "Examples" => write_examples()
     ]
 )
 
