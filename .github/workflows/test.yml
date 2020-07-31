@@ -21,9 +21,11 @@ jobs:
           - x64
     steps:
       - uses: actions/checkout@v1
+      - uses: r-lib/actions/setup-r@v1
+      - run: echo "::set-env name=LD_LIBRARY_PATH::$(R RHOME)/lib"
+      - uses: julia-actions/julia-buildpkg@latest
       - uses: julia-actions/setup-julia@latest
         with:
           version: ${{ matrix.version }}
           arch: ${{ matrix.arch }}
-      - uses: julia-actions/julia-buildpkg@latest
       - uses: julia-actions/julia-runtest@latest
