@@ -7,7 +7,7 @@
 </h3>
 
 <p align="center">
-  <a href="https://rikhuijzer.github.io/GenDoc.jl/actions"><img src="https://github.com/rikhuijzer/GenDoc.jl/workflows/tests/badge.svg"></a>
+  <a href="https://github.com/rikhuijzer/GenDoc.jl/actions"><img src="https://github.com/rikhuijzer/GenDoc.jl/workflows/tests/badge.svg"></a>
   <a href="https://rikhuijzer.github.io/GenDoc.jl/dev"><img src="https://github.com/rikhuijzer/GenDoc.jl/workflows/docs/badge.svg"></a>
 </p>
 

@@ -15,14 +15,33 @@ function write_examples()
 
 This page contains some examples.
 
-
-## asmd
-
-```@docs
-@asmd
+```@meta
+DocTestSetup = :(using GenDoc)
 ```
 
-$(@asmd 1 + 1)
+## withcb
+
+The most basic functionality of notebooks is showing code alongside the output.
+This can be done via `@withcb`.
+
+```@docs
+@withcb
+```
+
+For example, inside a string, use
+
+```
+$(raw"""$(@withcb 1 + 1)""")
+$(raw"""$(@withcb string("Solve ", 1 + 1, '.')""")
+```
+
+to respectively obtain
+
+$(@withcb 1 + 1)
+
+and
+
+$(@withcb string("Solve ", 1 + 1, '.'))
 
 """
 

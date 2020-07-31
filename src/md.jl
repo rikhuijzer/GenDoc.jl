@@ -67,12 +67,14 @@ end
 export rplot
 
 """
-    @asmd ex
+    @withcb ex
 
-Returns an expresssion *as Markdown* (asmd).
-Similar to default behaviour of R Markdown codeblocks.
+Returns the output of the evaluated expression `eval(ex)` after the expression `ex` inside a Markdown code block.
+Returns the expression `ex` inside a Markdown code block and the output of `eval(ex)`.
+
+Similar to default behaviour of R Markdown code blocks.
 """
-macro asmd(ex::Expr)
+macro withcb(ex::Expr)
     return """
         ```
         $(ex)
@@ -80,4 +82,4 @@ macro asmd(ex::Expr)
         $(eval(ex))
         """
 end
-export @asmd
+export @withcb
