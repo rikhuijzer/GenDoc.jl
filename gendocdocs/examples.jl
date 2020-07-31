@@ -1,4 +1,5 @@
 using GenDoc
+using RCall
 
 """
     write_examples
@@ -79,11 +80,9 @@ This macro allows to generate the next examples.
 Plot are first stored as images and then referenced from the generated document.
 
 $(@withcb begin
-    using RCall
-
     plot = R"
     library(ggplot2)
-    ggplot(mpg, aes(displ, hwy, colour = class)) + 
+    ggplot(mpg, aes(displ, hwy)) + 
         geom_point()
     "
     uri_prefix = ""

@@ -2,6 +2,8 @@ using DataFrames
 using Dates
 using RCall
 
+import MacroTools
+
 """
     generate_front_matter(vars::Dict{String,String})
 
@@ -66,6 +68,14 @@ function rplot(plot, filename, path_prefix, uri_prefix)::String
 end
 export rplot
 
+function withcb_helper(ex::Expr)
+    without_comments = MacroTools.rmlines(ex)
+    without_begin_end = join(split(string(without_comments), '\n')[2:end-1], '\n')
+    """
+    $(MacroTools.rmlines(without_begin_end))
+    """
+end
+
 """
     @withcb ex
 
@@ -73,13 +83,14 @@ Returns the output of the evaluated expression `eval(ex)` after the expression `
 Returns the expression `ex` inside a Markdown code block and the output of `eval(ex)`.
 
 Similar to default behaviour of R Markdown code blocks.
+
+MacroTools.rmlines should help.
 """
 macro withcb(ex::Expr)
-    return """
-        ```
-        $(ex)
-        ```
+    # Note that `GenDoc.withcb_helper` is resolved in the macro call environment.
+    return esc(:(string(
+        $(GenDoc.withcb_helper(ex)), '\n',
         $(eval(ex))
-        """
+    )))
 end
 export @withcb
