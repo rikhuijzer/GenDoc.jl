@@ -23,7 +23,8 @@ macro wrap_tmpdir(ex)
         try;
             $ex;
         catch e;
-            @error e;
+            rm(tmpdir, recursive=true)
+            throw(e)
         end;
         rm(tmpdir, recursive=true)
     ))
