@@ -18,23 +18,15 @@ close(io)</code></pre><p>which creates the file <code>analysis.md</code> contain
 title: Analysis
 ---
 
-After a lot of research, I conclude that the average is 4.</code></pre><p>After doing this for a few documents, the code will become quite repetitive.</p><h2 id="Showing-code-blocks-1"><a class="docs-heading-anchor" href="#Showing-code-blocks-1">Showing code blocks</a><a class="docs-heading-anchor-permalink" href="#Showing-code-blocks-1" title="Permalink"></a></h2><p>To show the evaluted result with the code block, use <code>@withcb</code>. For example, inside a string, use</p><pre><code class="language-none">$(@withcb 1 + 1)</code></pre><p>to obtain the following Markdown:</p><pre><code class="language-none">```
+After a lot of research, I conclude that the average is 4.</code></pre><p>After doing this for a few documents, the code will become quite repetitive.</p><h2 id="Showing-code-blocks-1"><a class="docs-heading-anchor" href="#Showing-code-blocks-1">Showing code blocks</a><a class="docs-heading-anchor-permalink" href="#Showing-code-blocks-1" title="Permalink"></a></h2><p>To show the evaluted result with the code block, use <code>@withcb</code>. For example, inside a string, use</p><pre><code class="language-none">$(@withcb begin 1 + 1 end)</code></pre><p>to obtain the following Markdown:</p><pre><code class="language-none">```
 1 + 1
 ```
-2
-</code></pre><p>After the Markdown renderer, this looks like</p><pre><code class="language-none">1 + 1</code></pre><p>2</p><p>This macro allows to generate the next examples.</p><h2 id="Including-plots-1"><a class="docs-heading-anchor" href="#Including-plots-1">Including plots</a><a class="docs-heading-anchor-permalink" href="#Including-plots-1" title="Permalink"></a></h2><p>Plot are first stored as images and then referenced from the generated document.</p><pre><code class="language-none">begin
-    #= /home/runner/work/GenDoc.jl/GenDoc.jl/gendocdocs/examples.jl:82 =#
-    using RCall
-    #= /home/runner/work/GenDoc.jl/GenDoc.jl/gendocdocs/examples.jl:84 =#
-    plot = R&quot;
-    library(ggplot2)
-    ggplot(mpg, aes(displ, hwy, colour = class)) + 
-        geom_point()
-    &quot;
-    #= /home/runner/work/GenDoc.jl/GenDoc.jl/gendocdocs/examples.jl:89 =#
-    uri_prefix = &quot;&quot;
-    #= /home/runner/work/GenDoc.jl/GenDoc.jl/gendocdocs/examples.jl:90 =#
-    path_prefix = joinpath(project_root(), &quot;docs&quot;, &quot;src&quot;)
-    #= /home/runner/work/GenDoc.jl/GenDoc.jl/gendocdocs/examples.jl:91 =#
-    rplot(plot, &quot;gen_plot.png&quot;, path_prefix, uri_prefix)
-end</code></pre><p><img src="../gen_plot.png" alt/></p><h2 id="Including-dataframes-1"><a class="docs-heading-anchor" href="#Including-dataframes-1">Including dataframes</a><a class="docs-heading-anchor-permalink" href="#Including-dataframes-1" title="Permalink"></a></h2></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../gettingstarted/">« Getting started</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Friday 31 July 2020 16:09">Friday 31 July 2020</span>. Using Julia version 1.4.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+
+2</code></pre><p>After the Markdown renderer, this looks like</p><pre><code class="language-none">1 + 1</code></pre><p>2</p><p>This macro is used to show the next examples, that is, by using</p><pre><code class="language-none">$(@withcb begin ... end)</code></pre><h2 id="Including-plots-1"><a class="docs-heading-anchor" href="#Including-plots-1">Including plots</a><a class="docs-heading-anchor-permalink" href="#Including-plots-1" title="Permalink"></a></h2><p>Plot are first stored as images and then referenced from the generated document. Here, we store the R plot <code>p</code> as <code>gen_plot.png</code>.</p><pre><code class="language-none">p = R&quot;
+library(ggplot2)
+ggplot(mpg, aes(displ, hwy)) + 
+geom_point()
+&quot;
+uri_prefix = &quot;&quot;
+path_prefix = joinpath(project_root(), &quot;docs&quot;, &quot;src&quot;)
+rplot(p, &quot;gen_plot.png&quot;, path_prefix, uri_prefix)</code></pre><p><img src="../gen_plot.png" alt/></p><h2 id="Including-dataframes-1"><a class="docs-heading-anchor" href="#Including-dataframes-1">Including dataframes</a><a class="docs-heading-anchor-permalink" href="#Including-dataframes-1" title="Permalink"></a></h2></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../gettingstarted/">« Getting started</a></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Friday 31 July 2020 18:59">Friday 31 July 2020</span>. Using Julia version 1.4.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
