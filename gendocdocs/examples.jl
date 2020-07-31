@@ -61,36 +61,43 @@ To show the evaluted result with the code block, use `@withcb`.
 For example, inside a string, use
 
 ```
-$(raw"""$(@withcb 1 + 1)""")
+$(raw"""$(@withcb begin 1 + 1 end)""")
 ```
 
 to obtain the following Markdown:
 ````
-$(@withcb 1 + 1)
+$(@withcb begin 1 + 1 end)
 ````
 
 After the Markdown renderer, this looks like
 
-$(@withcb 1 + 1)
+$(@withcb begin 1 + 1 end)
 
-This macro allows to generate the next examples.
+This macro is used to show the next examples, that is, by using
+
+```
+$(raw"""$(@withcb begin ... end)""")
+```
 
 ## Including plots
 
 Plot are first stored as images and then referenced from the generated document.
+Here, we store the R plot `p` as `gen_plot.png`.
 
 $(@withcb begin
-    plot = R"
+    p = R"
     library(ggplot2)
     ggplot(mpg, aes(displ, hwy)) + 
         geom_point()
     "
     uri_prefix = ""
     path_prefix = joinpath(project_root(), "docs", "src")
-    rplot(plot, "gen_plot.png", path_prefix, uri_prefix)
+    rplot(p, "gen_plot.png", path_prefix, uri_prefix)
 end)
 
 ## Including dataframes
+
+
 """
 
     target_path = joinpath(project_root(), "docs", "src", filename)

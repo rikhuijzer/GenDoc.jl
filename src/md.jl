@@ -69,10 +69,12 @@ end
 export rplot
 
 function withcb_helper(ex::Expr)
-    without_comments = MacroTools.rmlines(ex)
-    without_begin_end = join(split(string(without_comments), '\n')[2:end-1], '\n')
+    ex = MacroTools.rmlines(ex)
+    ex = join(lstrip.(split(string(ex), '\n')[2:end-1]), '\n')
     """
-    $(MacroTools.rmlines(without_begin_end))
+    ```
+    $(MacroTools.rmlines(ex))
+    ```
     """
 end
 
