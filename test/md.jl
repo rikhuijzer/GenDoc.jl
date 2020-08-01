@@ -4,7 +4,7 @@ using RCall
 using Test
 
 @testset "md" begin
-    front_matter = generate_front_matter(Dict("title"=>"test"))
+    front_matter = generate_front_matter(title="test")
     @test occursin("title: test", front_matter)
 
     df = DataFrame(A = 1:2, B = ["A", "B"])
