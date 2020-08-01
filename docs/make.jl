@@ -1,18 +1,12 @@
 using Documenter
 using GenDoc
 
-include("../gendocdocs/examples.jl")
+include("../gendocdocs/gettingstarted.jl")
 
 makedocs(sitename = "GenDoc.jl",
     pages = [
-        "Introduction" => "index.md",
-        "Getting started" => "gettingstarted.md",
-        "Examples" => write_examples()
+        "Getting started" => write_gettingstarted()
     ]
 )
 
-deploydocs(
-    repo = "github.com/rikhuijzer/GenDoc.jl.git",
-    deps = nothing,
-    make = nothing
-)
+deploydocs(repo = "github.com/rikhuijzer/GenDoc.jl.git")

@@ -7,9 +7,9 @@ using RCall
 Writes a Markdown file containing example uses for GenDoc.
 The output file is then further processed by `Documenter.jl`.
 """
-function write_examples()
+function write_gettingstarted()
     # Allows generated Markdown files to be added to `.gitignore`.
-    filename = "gen_examples.md"
+    filename = "gen_gettingstarted.md"
 
     analysis_example = raw"""
     ```
@@ -41,7 +41,7 @@ function write_examples()
     """
 
     text = """
-# Quick start
+# Getting started
 
 The main purpose of GenDoc.jl is to provide users with lots of freedom when generating documents.
 Achieving this without this package is possible.
@@ -50,7 +50,7 @@ A simple approach would be to generate a Markdown creating `analysis.jl` and wri
 $(analysis_example)
 
 After doing this for a few documents, the code will become quite repetitive.
-Next, functions and macros to avoid the repetition are shown.
+To avoid the repetition, we can use the following functions and macros.
 
 ```@meta
 DocTestSetup = :(using GenDoc)
