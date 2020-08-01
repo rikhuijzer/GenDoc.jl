@@ -50,6 +50,7 @@ A simple approach would be to generate a Markdown creating `analysis.jl` and wri
 $(analysis_example)
 
 After doing this for a few documents, the code will become quite repetitive.
+Next, functions and macros to avoid the repetition are shown.
 
 ```@meta
 DocTestSetup = :(using GenDoc)
@@ -64,7 +65,8 @@ For example, inside a string, use
 $(raw"""$(@withcb begin 1 + 1 end)""")
 ```
 
-to obtain the following Markdown:
+to obtain the following Markdown
+
 ````
 $(@withcb begin 1 + 1 end)
 ````
@@ -73,16 +75,12 @@ After the Markdown renderer, this looks like
 
 $(@withcb begin 1 + 1 end)
 
-This macro is used to show the next examples, that is, by using
+This macro is used to show the next examples.
 
-```
-$(raw"""$(@withcb begin ... end)""")
-```
-
-## Including plots
+## Plots
 
 Plot are first stored as images and then referenced from the generated document.
-Here, we store the R plot `p` as `gen_plot.png`.
+For R plots, use `rplot`
 
 $(@withcb begin
     p = R"
@@ -90,14 +88,17 @@ $(@withcb begin
     ggplot(mpg, aes(displ, hwy)) + 
         geom_point()
     "
-    uri_prefix = ""
     path_prefix = joinpath(project_root(), "docs", "src")
-    rplot(p, "gen_plot.png", path_prefix, uri_prefix)
+    keyword_args = Dict("width" => 10, "height" => 4)
+    rplot(p, "gen_plot.png"; path_prefix=path_prefix, kwargs=keyword_args)
 end)
 
-## Including dataframes
+## Dataframes
 
-
+$(@withcb begin
+    df = DataFrame(A = [1, 2], B = [3, 4])
+    md(df)
+end)
 """
 
     target_path = joinpath(project_root(), "docs", "src", filename)
