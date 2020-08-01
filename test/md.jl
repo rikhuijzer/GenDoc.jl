@@ -24,8 +24,10 @@ using Test
     @wrap_tmpdir begin
         R"library(ggplot2)"
         plot = R"ggplot(cars)"
-        # Mostly a smoke test.
-        @test occursin("plot.png", rplot(plot, "plot.png", tmpdir, tmpdir))
+        filename = "plot.png"
+        md_image = rplot(filename; path_prefix=tmpdir, uri_prefix=tmpdir, height=6)
+        @test occursin("plot.png", md_image)
+        @test isfile(joinpath(tmpdir, filename))
     end
 
 end
