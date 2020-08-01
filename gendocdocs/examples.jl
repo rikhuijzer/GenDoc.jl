@@ -82,6 +82,10 @@ This macro is used to show the next examples.
 Plot are first stored as images and then referenced from the generated document.
 For R plots, use `rplot`
 
+```@docs
+rplot
+```
+
 $(@withcb begin
     p = R"
     library(ggplot2)
@@ -89,8 +93,7 @@ $(@withcb begin
         geom_point()
     "
     path_prefix = joinpath(project_root(), "docs", "src")
-    keyword_args = Dict("width" => 10, "height" => 4)
-    rplot(p, "gen_plot.png"; path_prefix=path_prefix, kwargs=keyword_args)
+    rplot("gen_plot.png"; path_prefix=path_prefix, width=8, height=4)
 end)
 
 ## Dataframes
