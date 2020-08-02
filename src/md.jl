@@ -85,8 +85,9 @@ Similar to default behaviour of R Markdown code blocks.
 MacroTools.rmlines should help.
 """
 macro withcb(ex::Expr)
-    # Note that `GenDoc.withcb_helper` is resolved in the macro call environment.
+    # This is a macro since `ex` should be evaluated in the macro call environment.
     return esc(:(string(
+        # Note that `GenDoc.withcb_helper` is resolved in the macro call environment.
         $(GenDoc.withcb_helper(ex)), '\n',
         $(eval(ex))
     )))
