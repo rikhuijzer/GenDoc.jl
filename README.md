@@ -4,7 +4,7 @@
   Generate Markdown documents
 </h3>
 
-| **Documentation** | **Test status** 
+| **Documentation** | **Test status** |
 |:---:|:---:|:---:|
 | [![][docs-dev-img]](docs-dev-url) | [![][tests-img](tests-url) | 
 
