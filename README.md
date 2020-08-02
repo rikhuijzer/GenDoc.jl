@@ -1,7 +1,7 @@
 # GenDoc <img src="https://huijzer.xyz/images/GenDoc-crop.svg" align="right">
 
 <h3>
-  Generate Markdown documents
+  Generate documents
 </h3>
 
 [![][docs-dev-img]](docs-dev-url) [![][tests-img]](tests-url)
