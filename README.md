@@ -1,19 +1,13 @@
-<h1 align="center">
-  GenDoc
-</h1>
+# GenDoc <img src="https://huijzer.xyz/images/GenDoc-crop.svg" align="right">
 
-<p align="center">
-  <img src="https://huijzer.xyz/images/GenDoc-crop.svg">
-</p>
-
-<h3 align="center">
+<h3>
   Generate Markdown documents
 </h3>
 
-<p align="center">
-  <a href="https://rikhuijzer.github.io/GenDoc.jl/dev"><img src="https://github.com/rikhuijzer/GenDoc.jl/workflows/docs/badge.svg"></a>
-  <a href="https://github.com/rikhuijzer/GenDoc.jl/actions"><img src="https://github.com/rikhuijzer/GenDoc.jl/workflows/tests/badge.svg"></a>
-</p>
+| **Documentation** | **Test status** 
+|:---:|:---:|:---:|
+| [![][docs-dev-img]](docs-dev-url) | [![][tests-img](tests-url) | 
+
 
 [//]: # (Show a kind of abstract on this page and a bigger introduction in the docs at `index`.)
 
@@ -35,3 +29,9 @@ This problem is especially noticable when one of the earlier blocks contains an 
 [Revise.jl](https://github.com/timholy/Revise.jl) solves this since it will reload changes while keeping the Julia session active.
 Specifically, with Revise: let all the blocks be functions instead of blocks. 
 When we try to run function 3 after changing function 1, Revise will notice that function 1 has changed and run function 1 before running function 3.
+
+[docs-dev-img]: https://github.com/rikhuijzer/GenDoc.jl/workflows/docs/badge.svg
+[docs-dev-url]: https://rikhuijzer.github.io/GenDoc.jl/dev
+
+[tests-img]: https://github.com/rikhuijzer/GenDoc.jl/workflows/tests/badge.svg
+[tests-url]: https://github.com/rikhuijzer/GenDoc.jl/actions
