@@ -6,7 +6,7 @@
 
 | **Documentation** | **Test status** |
 |:---:|:---:|:---:|
-| [![][docs-dev-img]](docs-dev-url) | [![][tests-img](tests-url) | 
+| [![][docs-dev-img]](docs-dev-url) | [![][tests-img]](tests-url) | 
 
 
 [//]: # (Show a kind of abstract on this page and a bigger introduction in the docs at `index`.)
