@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://huijzer.xyz/images/GenDoc-crop.svg">
+</p>
+
 <h1 align="center">
   GenDoc
 </h1>
