@@ -18,7 +18,5 @@ For example, two HTML pages where the HTML pages use different citation styles.
 
 ## Package features
 
-- Output R plots and DataFrames to HTML, see [Getting started](gen_gettingstarted).
-
-
+- Output R plots and DataFrames to HTML, see [Getting started](gen_gettingstarted.html).
 

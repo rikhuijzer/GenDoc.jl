@@ -7,18 +7,17 @@ using Test
     front_matter = generate_front_matter(title="test")
     @test occursin("title: test", front_matter)
 
-    df = DataFrame(A = 1:2, B = ["A", "B"])
+    df = DataFrame(a = 1, b_1 = ["C"])
     @test md(df) == """
-        A | B
+        a | b_1
         --- | ---
-        1 | A
-        2 | B
+        1 | C
         """
-    @test md(df; show_header=false) == """
-          |  
+
+    @test pretty(df) == """
+        A | B 1
         --- | ---
-        1 | A
-        2 | B
+        1 | C
         """
 
     @wrap_tmpdir begin

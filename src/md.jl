@@ -7,6 +7,7 @@ export
     generate_front_matter,
     md,
     rplot,
+    pretty,
     @withcb
     
 """
@@ -28,26 +29,22 @@ function generate_front_matter(; kwargs...)::String
 end
 
 """
-    md(df::DataFrame; show_header=true)::String
+    md(df::DataFrame)::String
 
-Convert DataFrame `df` to String.
+Convert DataFrame `df` to Markdown syntax.
 """
-function md(df::DataFrame; show_header=true)::String
-  row2str(row::DataFrameRow) = join(values(row), " | ")
+function md(df::DataFrame)::String
+    row2str(row::DataFrameRow) = join(values(row), " | ")
 
-  if show_header 
     header = join(names(df), " | ")
-  else
-    header = join(repeat([' '], ncol(df)), " | ")
-  end
-  subheader = join(repeat(["---"], ncol(df)), " | ")
-  body = join(map(i -> row2str(df[i, :]), 1:nrow(df)), '\n')
+    subheader = join(repeat(["---"], ncol(df)), " | ")
+    body = join(map(i -> row2str(df[i, :]), 1:nrow(df)), '\n')
   
-  return """
-  $header
-  $subheader
-  $body
-  """
+    return """
+    $header
+    $subheader
+    $body
+    """
 end
 
 """
@@ -68,6 +65,18 @@ function rplot(filename; path_prefix=nothing, uri_prefix=nothing, kwargs...)::St
     return "![]($uri_path)"
 end
 
+"""
+    pretty(df::DataFrame)::String
+
+Make header of `df` prettier, by capitalising the first letter and removing underscores.
+"""
+function pretty(df::DataFrame)::String
+    lines = split(md(df), '\n')
+    lines[1] = replace(lines[1], '_' => ' ')
+    lines[1] = join(map(uppercasefirst, split(lines[1], " | ")), " | ")
+    join(lines, '\n')
+end
+
 function withcb_helper(ex::Expr)
     ex = MacroTools.rmlines(ex)
     ex = join(lstrip.(split(string(ex), '\n')[2:end-1]), '\n')
@@ -81,8 +90,7 @@ end
 """
     @withcb ex
 
-Returns the output of the evaluated expression `eval(ex)` after the expression `ex` inside a Markdown code block.
-Returns the expression `ex` inside a Markdown code block and the output of `eval(ex)`.
+Return the expression `ex` inside a Markdown code block and the output of `eval(ex)`.
 
 Similar to default behaviour of R Markdown code blocks.
 """

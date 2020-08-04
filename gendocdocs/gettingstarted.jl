@@ -92,15 +92,15 @@ $(@withcb begin
     ggplot(mpg, aes(displ, hwy)) + 
         geom_point()
     "
-    path_prefix = joinpath(project_root(), "docs", "src")
+    path_prefix = joinpath(GenDoc.project_root(), "docs", "src")
     rplot("gen_plot.png"; path_prefix=path_prefix, width=8, height=4)
 end)
 
 ## Dataframes
 
 $(@withcb begin
-    df = DataFrame(A = [1, 2], B = [3, 4])
-    md(df)
+    df = DataFrame(study = ["A", "B"], question_1 = [3, 4])
+    join([md(df), pretty(df)], '\n')
 end)
 """
 
