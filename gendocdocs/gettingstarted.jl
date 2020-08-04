@@ -99,12 +99,12 @@ end)
 ## Dataframes
 
 $(@withcb begin
-    df = DataFrame(study = ["A", "B"], question_1 = [3, 4])
+    df = DataFrame(study = ["A", "B"], result_1 = [3, 4])
     join([md(df), pretty(df)], '\n')
 end)
 """
 
-    target_path = joinpath(project_root(), "docs", "src", filename)
+    target_path = joinpath(GenDoc.project_root(), "docs", "src", filename)
     io = open(target_path, "w")
     write(io, text)
     close(io)
