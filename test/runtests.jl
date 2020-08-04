@@ -3,13 +3,6 @@ using GenDoc
 
 import RCall
 
-# Smoke test.
-function test_rcall()
-    lsd = RCall.reval("ls(\"package:datasets\")")
-    @test isa(lsd, RCall.RObject{RCall.StrSxp})
-    @test length(lsd) > 50
-end
-
 """
     @wrap_tmpdir ex
 
@@ -31,7 +24,5 @@ macro wrap_tmpdir(ex)
 end
 
 @testset "GenDoc" begin
-    test_rcall()
-
     include("md.jl")
 end
