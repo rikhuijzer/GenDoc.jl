@@ -6,7 +6,6 @@
 
 [![][docs-dev-img]][docs-dev-url] [![][tests-img]][tests-url]
 
-
 [//]: # (Show a kind of abstract on this page and a bigger introduction in the docs at `index`.)
 
 This project arose out of a lack of flexibility in existing notebook solutions such as [Jupyter Notebook](https://jupyter.org), [R Markdown](https://rmarkdown.rstudio.com/) and [Weave.jl](https://github.com/JunoLab/Weave.jl).
