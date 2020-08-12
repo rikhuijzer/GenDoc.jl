@@ -5,6 +5,7 @@ import MacroTools
 
 export 
     generate_front_matter,
+    hspace,
     md,
     rplot,
     pretty,
@@ -27,6 +28,16 @@ function generate_front_matter(; kwargs...)::String
 
     """
 end
+
+"""
+    hspace(h::Number)::String
+    hspace(h="1cm")::String
+
+Horizontal space as HTML.
+The unit of `h::Number` defaults to `cm`.
+"""
+hspace(h="1cm")::String = "<p style=\"margin-top:$h\"></p>"
+hspace(h::Number)::String = hspace("$(h)cm")
 
 """
     md(df::DataFrame)::String

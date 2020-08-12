@@ -1,3 +1,13 @@
+export
+    is_gitlab_ci
+
+"""
+    is_gitlab_ci()::Bool
+
+Return whether this project is being executed on GitLab's CI.
+"""
+is_gitlab_ci()::Bool = "CI_PIPELINE_SOURCE" in keys(ENV)
+
 """
     project_root()::String
 

@@ -7,6 +7,8 @@ using Test
     front_matter = generate_front_matter(title="test")
     @test occursin("title: test", front_matter)
 
+    @test occursin("margin-top:1cm", hspace(1))
+
     df = DataFrame(a = 1, b_1 = ["C"])
     @test md(df) == """
         a | b_1
