@@ -7,7 +7,8 @@ makedocs(
     sitename = "GenDoc.jl",
     pages = [
         "Introduction" => "index.md",
-        "Getting started" => write_gettingstarted()
+        "Getting started" => write_gettingstarted(),
+        "Methods" => "methods.md"
     ],
     format = Documenter.HTML(prettyurls = get(ENV, "CI", nothing) == "true")
 )

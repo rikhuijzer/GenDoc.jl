@@ -1,0 +1,5 @@
+# Methods
+
+```@autodocs
+Modules = [GenDoc]
+```
