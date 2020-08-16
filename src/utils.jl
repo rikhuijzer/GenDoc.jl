@@ -1,7 +1,7 @@
 export
     is_ci
 
-is_github_ci()::Bool = ENV["CI"] == true
+is_github_ci()::Bool = "CI" in keys(ENV)
 is_gitlab_ci()::Bool = "CI_PIPELINE_SOURCE" in keys(ENV)
 
 """
