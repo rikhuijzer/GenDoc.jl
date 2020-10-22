@@ -8,6 +8,8 @@
 
 [//]: # (Show a kind of abstract on this page and a bigger introduction in the docs at `index`.)
 
+**This project is deprecated; I'm now happily using [Franklin.jl](https://github.com/tlienart/Franklin.jl).**
+
 This project arose out of a lack of flexibility in existing notebook solutions such as [Jupyter Notebook](https://jupyter.org), [R Markdown](https://rmarkdown.rstudio.com/) and [Weave.jl](https://github.com/JunoLab/Weave.jl).
 They introduce special syntax which constrain capabiltities available in the underlying language.
 For example, existing notebook solutions
